@@ -29,9 +29,7 @@ public class StartupRunner implements CommandLineRunner {
 	}
     @Override
     public void run(String... args) throws Exception {
-    	System.out.println(Constants.CONFIG_DB_BASE+Constants.CONFIG_DB_NAME);
 
-        // 1️⃣ 建立資料夾
         File folder = new File("/tmp/initFolder");
         if (!folder.exists()) {
             boolean created = folder.mkdirs();
@@ -49,6 +47,5 @@ public class StartupRunner implements CommandLineRunner {
         	System.err.println("DB Error cause:"+e.getMessage());
 		}
 
-        System.out.println("🎉 初始化完成！");
     }
 }

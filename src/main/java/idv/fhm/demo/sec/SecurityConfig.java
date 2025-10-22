@@ -26,17 +26,5 @@ public class SecurityConfig {
 
 		return http.build();
 
-//		http.csrf(csrf -> csrf.disable()) // 關掉 CSRF 保護（若是 REST API）
-//				.authorizeHttpRequests(auth -> auth
-//						// 👇 這裡列出你想跳過驗證的網址
-//						.requestMatchers("/login", "/register", "/activate", "/swagger-ui/**", "/v3/api-docs/**",
-//								"/swagger-ui.html", "/webjars/**")
-//						.permitAll()
-//						// 👇 其他路徑才需要驗證
-//						.anyRequest().authenticated()).addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-//				.formLogin(form -> form.disable()) // 不要用預設登入頁面
-//				.httpBasic(basic -> basic.disable()); // 不要彈出 basic auth 視窗
-
-//		return http.build();
 	}
 }

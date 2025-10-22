@@ -66,11 +66,7 @@ public class DatabaseUtil {
 
 	public static boolean executeSQLUpdate(Connection con, String SQL, List<String> vars, List<Map> values) {
 		boolean result = false;
-		System.out.println(SQL);
-		System.out.println(vars);
-		System.out.println(values);
 		if (values != null) {
-			System.out.println(SQL);
 			try (PreparedStatement ps = con.prepareStatement(SQL);) {
 				
 				for (Iterator iterator = values.iterator(); iterator.hasNext();) {
@@ -96,7 +92,6 @@ public class DatabaseUtil {
 			}
 
 		} else {
-			System.out.println(SQL);
 			try (PreparedStatement ps = con.prepareStatement(SQL);) {
 				int count=ps.executeUpdate();
 				return count>0;
@@ -133,16 +128,13 @@ public class DatabaseUtil {
     	
     	if(isUpdateSql(sql)) {
     		if(condition instanceof List) {
-    			System.out.println("1"+sql);
     			return executeSQLUpdate(con, sql, vars, (List)condition);
     		}else {
     			List<Map> multi=Arrays.asList(new Map[]{(Map<String, Object>)condition});
-    			System.out.println("2"+sql);
     			return executeSQLUpdate(con, sql, vars, multi);
     		}
     		
     	}else {
-    		System.out.println("3"+sql);
     		return executeSQLQuery(con, sql, vars, (Map<String, Object>) condition);
     	}
     
@@ -211,9 +203,6 @@ public class DatabaseUtil {
 	public static List<Map<String, Object>> executeSQLQuery(Connection con, String sql, List<String> vars,Map<String,Object> condition) {
 		
 		List<Map<String, Object>> result = new ArrayList<>();
-		System.out.println(sql);
-		System.out.println(vars);
-		System.out.println(condition);
 		try (PreparedStatement ps = con.prepareStatement(sql);) {
 			// 設定參數
 			if (vars != null&&condition!=null) {

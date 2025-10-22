@@ -52,10 +52,8 @@ public class JwtUtil {
     public static void main(String[] args) {
         String account = "user@example.com";
         String token = generateToken(account);
-        System.out.println("Generated Token:\n" + token);
 
         // 驗證 token
         String subject = validateToken(token);
-        System.out.println("Token belongs to: " + subject);
     }
 }

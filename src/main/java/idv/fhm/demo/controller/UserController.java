@@ -80,7 +80,7 @@ public class UserController {
 			boolean createResult = ado.executeUpdate(Constants.INSERT_ACCOUNT_SQL, Arrays.asList(new Map[] { data }));
 
 			if (createResult) {
-				MailUtil.sendMail(String.valueOf(data.get("email")), "http://localhost:8080/activate?activateStr="
+				MailUtil.sendMail(String.valueOf(data.get("email")), "http://59.102.142.210/activate?activateStr="
 						+ URLEncoder.encode(rsa.encode(String.valueOf(data.get("email"))), "UTF-8"));
 				result.put("msg", "The account \'" + data.get("email") + "\' has been created!");
 				result.put("status", true);
@@ -161,10 +161,8 @@ public class UserController {
 		try {
 			RSAUtil rsa = new RSAUtil();
 			Map<String, Object> condition = new HashMap<String, Object>();
-			System.out.println(activateStr);
 			condition.put("email", rsa.decode(activateStr));
 			boolean flag = ado.executeUpdate(Constants.ACTIVATE_ACCOUNT_SQL, Arrays.asList(new Map[] { condition }));
-			System.out.println("flag=" + flag);
 			if (flag) {
 				result.put("msg", "your account has been activated!");
 				result.put("status", true);
