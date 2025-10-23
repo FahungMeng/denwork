@@ -5,8 +5,8 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class MailUtil {
-	final static String username = "99b47e001@smtp-brevo.com";
-	final static String password = "8q7jNFSZRdBW6LJx";
+	final static String username = "";
+	final static String password = "";
 //	public static void main(String[] args) {
 //		// 你的 Brevo SMTP 帳密
 //
